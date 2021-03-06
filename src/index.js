@@ -4,7 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(<App lastname="luis" />, document.getElementById('root'));
+const DATA = [
+    {id: "todo-0", name: "Eat", completed: true},
+    {id: "todo-1", name: "Sleep", completed: false},
+    {id: "todo-2", name: "Repeat", completed: false},
+    {id: "todo-3", name: "Work", completed: false}
+]
+
+ReactDOM.render(<App tasks={DATA}/>, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
