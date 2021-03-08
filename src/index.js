@@ -4,12 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const DATA = [
-    {id: "todo-0", name: "Eat", completed: true},
-    {id: "todo-1", name: "Sleep", completed: false},
-    {id: "todo-2", name: "Repeat", completed: false},
-    {id: "todo-3", name: "Work", completed: false}
-]
+const DATA = require('./DATA.json');
+
 
 ReactDOM.render(<App tasks={DATA}/>, document.getElementById('root'));
 

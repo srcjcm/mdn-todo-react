@@ -1,0 +1,5 @@
+[
+    {"id": "todo-0", "name": "Eat", "completed": true},
+    {"id": "todo-1", "name": "Work", "completed": false},
+    {"id": "todo-2", "name": "Health", "completed": false}
+]
