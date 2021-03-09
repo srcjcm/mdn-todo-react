@@ -14,7 +14,7 @@ function toggleTaskCompleted(id){
 
   const updatedTasks = tasks.map(task => {
     if (id === task.id){
-      return
+      return {...task, completed: !task.completed}
     }
     return task;
     
@@ -36,12 +36,23 @@ function deleteTask(id){
     key = {task.id}
     toggleTaskCompleted={toggleTaskCompleted}
     deleteTask={deleteTask}
+    editTask={editTask}
     />
   ));
 
   function addTask(name){
       const newTask = {id: "todo-" + nanoid(), name: name, completed: false};
       setTasks([...tasks, newTask]);
+  }
+
+  function editTask(id, newName){
+    const editedTaskList = tasks.map(task => {
+      if (id === task.id){
+        return {...task, name: newName}
+      }
+      return task;
+    });
+    setTasks(editedTaskList);
   }
 
   const tasksNoun = taskList.length === 1 ? 'task' : 'tasks';
