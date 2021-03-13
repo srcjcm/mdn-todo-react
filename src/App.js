@@ -5,10 +5,19 @@ import FilterButton from "./components/FilterButton";
 
 import { nanoid } from "nanoid";
 
+const FILTER_MAP = {
+  All: () => true,
+  Active: task => !task.completed,
+  Completed: task => task.completed
+};
+
+const FILTER_NAMES = Object.keys(FILTER_MAP);
+
 function App(props) {
 
-  //le paso el props inmediatamente al hook
+  
   const [tasks, setTasks] = useState(props.tasks);
+  const [filter, setFilter] = useState('All');
   
 function toggleTaskCompleted(id){
 
@@ -27,8 +36,11 @@ function deleteTask(id){
 
 }
 
-  //ahora administro todo del componenete a traves del state que ya se puso en el hook, no por los props
-  const taskList = tasks.map(task => (
+//Components set loading
+  
+  const taskList = tasks
+  .filter(FILTER_MAP[filter])
+  .map(task => (
     <Todo 
     id={task.id} 
     name={task.name} 
@@ -39,6 +51,15 @@ function deleteTask(id){
     editTask={editTask}
     />
   ));
+
+  const filterList =  FILTER_NAMES.map(name => (
+    <FilterButton 
+      key={name} 
+      name={name}
+      isPressed={name === filter}
+      setFilter={setFilter}
+    />
+  ))
 
   function addTask(name){
       const newTask = {id: "todo-" + nanoid(), name: name, completed: false};
@@ -65,9 +86,7 @@ function deleteTask(id){
       <Form addTask={addTask}/>
       {/* Filter section */}
       <div className="filters btn-group stack-exception">
-        <FilterButton />
-        <FilterButton />
-        <FilterButton />
+       {filterList}
       </div>
       <h2 id="list-heading">{headingText}</h2>
       { 
