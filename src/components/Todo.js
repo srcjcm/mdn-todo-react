@@ -1,13 +1,6 @@
 import React, {useState, useRef, useEffect} from "react";
+import {usePrevious} from '../utils.js'
 
-//why here...
-function usePrevious(value){
-  const ref = useRef();
-  useEffect(()=> {
-    ref.current = value;
-  });
-  return ref.current;
-}
 
 function Todo(props) {
 

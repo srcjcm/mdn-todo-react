@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import Todo from "./components/Todo";
 import Form from "./components/Form";
 import FilterButton from "./components/FilterButton";
 
 import { nanoid } from "nanoid";
+import { usePrevious } from "./utils";
 
 const FILTER_MAP = {
   All: () => true,
@@ -78,6 +79,14 @@ function deleteTask(id){
 
   const tasksNoun = taskList.length === 1 ? 'task' : 'tasks';
   const headingText = `${taskList.length} ${tasksNoun} remaining`;
+  const listHeadingRef = useRef(null);
+  const prevTaskLength = usePrevious(tasks.length)
+
+  useEffect(() => {
+    if (tasks.length - prevTaskLength ===-1){
+      listHeadingRef.current.focus();
+    }
+  })
   
   return (
     <div className="todoapp stack-large">
@@ -88,7 +97,11 @@ function deleteTask(id){
       <div className="filters btn-group stack-exception">
        {filterList}
       </div>
-      <h2 id="list-heading">{headingText}</h2>
+      <h2 
+        id="list-heading" 
+        tabIndex="-1"
+        ref={listHeadingRef}
+        >{headingText}</h2>
       { 
         // eslint-disable-next-line
       }<ul  
