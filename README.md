@@ -8,7 +8,7 @@ On top of following the guide, understading of the inner workings of react was p
 Key concepts dissected and learned from this project:
 - React basic component based structure
 - React life cycle stages and virtual DOM
-- Statefull Component based thinking for ui implementation
+- Stateful Component based thinking for ui implementation
 - Data decoupling from view components
 - React function components and many basic hooks
 - Special attributes ref and key
