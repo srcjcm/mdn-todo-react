@@ -1,6 +1,7 @@
 # What's this?
 
 Hi!
+###
 This is a simple, accesibility friendly todo-app made by closely following the guide at MDN Web Docs. I took on this projects to learn concepts about the React and React Dom framework.
 ###
 On top of following the guide, understading of the inner workings of react was put in place along side this.This to allow me for a better understading of the inner workings of the framework.
