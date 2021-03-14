@@ -1,3 +1,17 @@
+# What's this?
+
+This is a simple, accesibility friendly todo-app made by closely following the guide at MDN Web Docs. 
+On top of following the guide, understading of the inner workings of react was put in place along side this.This to allow me for a better understading of the inner workings of the framework.
+Key concepts dissected and learned from this project:
+-React basic component based structure
+-React life cycle stages and virtual DOM
+-Statefull Component based thinking for ui implementation
+-Data decoupling from view components
+-React function components and many basic hooks
+-Special attributes ref and key
+-Conditional ui rendering
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
